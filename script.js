@@ -11,7 +11,7 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-let userMove;
+let userMove = prompt("rock, paper, scissors", "rock").toLocaleLowerCase();
 let result;
 
 function play(userMove) {
@@ -45,4 +45,4 @@ function play(userMove) {
 }
 
 getComputerChoice();
-console.log(play("rock"));
+console.log(play(userMove));
