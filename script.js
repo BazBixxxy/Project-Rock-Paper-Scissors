@@ -13,9 +13,9 @@ function getComputerChoice() {
 
 const plays = [];
 const score = {
-  wins: [],
-  losses: [],
-  ties: [],
+  wins: 0,
+  losses: 0,
+  ties: 0,
 };
 
 function scoreUpdate() {
