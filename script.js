@@ -11,10 +11,16 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-let userMove = prompt("rock, paper, scissors", "rock").toLocaleLowerCase();
-let result;
+const plays = [];
+const score = {
+  wins: [],
+  losses: [],
+  ties: [],
+};
 
+let result;
 function play(userMove) {
+  // plays.push(1);
   // the result after we have the user move.
   if (userMove === "rock") {
     if (computerChoice === "rock") {
@@ -41,8 +47,31 @@ function play(userMove) {
       result = "tie";
     }
   }
-  return `You played ${userMove} || computer played ${computerChoice} || you ${result}`;
+
+  if (result === "win") {
+    score.wins++;
+  } else if (result === "lose") {
+    score.losses++;
+  } else if (result === "tie") {
+    score.ties++;
+  }
+
+  document.querySelector(
+    ".play"
+  ).innerHTML = `<p>You played ${userMove} || computer played ${computerChoice} || you ${result}</p>`;
 }
 
-getComputerChoice();
-console.log(play(userMove));
+document.querySelector(".rock").addEventListener("click", () => {
+  getComputerChoice();
+  play("rock");
+});
+
+document.querySelector(".paper").addEventListener("click", () => {
+  getComputerChoice();
+  play("paper");
+});
+
+document.querySelector(".scissors").addEventListener("click", () => {
+  getComputerChoice();
+  play("scissors");
+});
