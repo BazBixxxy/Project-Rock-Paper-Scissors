@@ -18,6 +18,12 @@ const score = {
   ties: [],
 };
 
+function scoreUpdate() {
+  document.querySelector(
+    ".score"
+  ).innerHTML = `<p>Wins: ${score.wins} || Losses: ${score.losses} || Ties: ${score.ties}</p>`;
+}
+
 let result;
 function play(userMove) {
   // plays.push(1);
@@ -59,6 +65,7 @@ function play(userMove) {
   document.querySelector(
     ".play"
   ).innerHTML = `<p>You played ${userMove} || computer played ${computerChoice} || you ${result}</p>`;
+  scoreUpdate();
 }
 
 document.querySelector(".rock").addEventListener("click", () => {
